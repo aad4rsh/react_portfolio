@@ -8,6 +8,11 @@
   z-index: 15;
   /* Same as the left text, safely behind the orbit portrait */
   pointer-events: none;
+
+  /* Entrance Animation */
+  opacity: 0;
+  animation: text-slide-up-right 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 1.8s; /* Appears slightly after the left text */
 }
 
 .heroName {
@@ -24,4 +29,42 @@
   /* -webkit-text-stroke: 2px rgba(255, 255, 255, 0.8); */
   /* Creates the outline effect */
   /* filter: drop-shadow(0 4px 24px rgba(99, 102, 241, 0.4)); */
+
+  /* Continuous Glow Animation */
+  animation: name-glow 4s ease-in-out infinite alternate;
+}
+
+@keyframes text-slide-up-right {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes name-glow {
+  0% {
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+    opacity: 0.8;
+  }
+  100% {
+    filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.6));
+    opacity: 1;
+  }
+}
+
+/* Responsive Scaling */
+@media (max-width: 1024px) {
+  .heroName { font-size: 4rem; }
+}
+
+@media (max-width: 768px) {
+  .heroName { font-size: 3rem; }
+}
+
+@media (max-width: 480px) {
+  .heroName { font-size: 2.25rem; }
 }

@@ -8,6 +8,11 @@
   z-index: 15;
   /* Sits nicely with the Orbit layer */
   pointer-events: none;
+
+  /* Entrance Animation */
+  opacity: 0;
+  animation: text-slide-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 1.5s; 
 }
 
 .small-text {
@@ -37,4 +42,46 @@
   /* background-clip: text; */
   /* -webkit-text-fill-color: transparent; */
   filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+
+  /* Continuous Subtle Glow Animation */
+  animation: text-glow-left 5s ease-in-out infinite alternate;
+}
+
+@keyframes text-glow-left {
+  0% {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.1));
+    transform: translateX(0);
+  }
+  100% {
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));
+    transform: translateX(5px);
+  }
+}
+
+/* Responsive Scaling */
+@media (max-width: 1024px) {
+  .small-text { font-size: 2.5rem; }
+  .bigPos { font-size: 4.5em; }
+}
+
+@media (max-width: 768px) {
+  .small-text { font-size: 1.5rem; }
+  .bigPos { font-size: 3em; }
+}
+
+@media (max-width: 480px) {
+  .small-text { font-size: 1.25rem; }
+  .bigPos { font-size: 2.25em; }
+}
+
+/* ── Keyframes ── */
+@keyframes text-slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
