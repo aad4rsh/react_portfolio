@@ -1,0 +1,88 @@
+/* ── Scene: fixed at exact viewport center (zero-size anchor point) ── */
+.orbit-scene {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ── Static decorative ring — NOT animated ────────────────────────── */
+.orbit-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 400px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  /* border: 2px dashed rgba(99, 102, 241, 0.35); */
+  /* box-shadow:
+    0 0 40px rgba(99, 102, 241, 0.12),
+    inset 0 0 40px rgba(168, 85, 247, 0.06); */
+  pointer-events: none;
+}
+
+/* ── Each icon: anchored at center, orbits outward ────────────────── */
+/*    Transform order matters:
+      1. Center the element on the anchor point
+      2. Rotate to current orbital angle
+      3. Push outward by radius
+      4. Counter-rotate so icon stays upright                          */
+.orbit-icon-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 56px;
+  height: 56px;
+  pointer-events: auto;
+  animation: orbit-spin 7s linear infinite;
+}
+
+.orbit-icon {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.25));
+  transition: filter 0.2s ease, transform 0.2s ease;
+  user-select: none;
+  display: block;
+  margin: auto;
+}
+
+.orbit-icon:hover {
+  filter: drop-shadow(0 6px 18px rgba(99, 102, 241, 0.7));
+  transform: scale(1.3);
+}
+
+/* ── Decorative glowing centre dot ───────────────────────────────── */
+/* .orbit-center {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, #a855f7, #6366f1);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.9), 0 0 40px rgba(99, 102, 241, 0.4);
+  pointer-events: none;
+} */
+
+/* ── Keyframes ───────────────────────────────────────────────────── */
+/*    --angle is the STATIC start offset for each icon.
+      The icon orbits a full 360° from there.
+      The final rotate() cancels the orbital tilt so the icon is upright. */
+@keyframes orbit-spin {
+  0% {
+    transform:
+      translate(-50%, -50%) rotate(var(--angle)) translateX(200px) rotate(calc(-1 * var(--angle)));
+  }
+
+  100% {
+    transform:
+      translate(-50%, -50%) rotate(calc(var(--angle) + 360deg)) translateX(200px) rotate(calc(-1 * var(--angle) - 360deg));
+  }
+}
