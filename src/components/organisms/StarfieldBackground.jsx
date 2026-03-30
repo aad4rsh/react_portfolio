@@ -21,8 +21,8 @@ export function StarfieldBackground({
     if (!ctx) return;
 
     const rect = container.getBoundingClientRect();
-    let width = rect.width;
-    let height = rect.height;
+    let width = window.innerWidth;
+    let height = window.innerHeight;
     canvas.width = width;
     canvas.height = height;
 
@@ -41,15 +41,13 @@ export function StarfieldBackground({
     const stars = Array.from({ length: count }, () => createStar());
 
     const handleResize = () => {
-      const rect = container.getBoundingClientRect();
-      width = rect.width;
-      height = rect.height;
+      width = window.innerWidth;
+      height = window.innerHeight;
       canvas.width = width;
       canvas.height = height;
     };
 
-    const ro = new ResizeObserver(handleResize);
-    ro.observe(container);
+    window.addEventListener('resize', handleResize);
 
     const animate = () => {
       tick++;
@@ -113,7 +111,7 @@ export function StarfieldBackground({
 
     return () => {
       cancelAnimationFrame(animationId);
-      ro.disconnect();
+      window.removeEventListener('resize', handleResize);
     };
   }, [count, speed, starColor, twinkle]);
 

@@ -7,6 +7,19 @@
   height: 0;
   pointer-events: none;
   z-index: 10;
+  animation: scene-fade-in 1.5s ease-out forwards;
+}
+
+@keyframes scene-fade-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* ── Static decorative ring — NOT animated ────────────────────────── */
@@ -14,8 +27,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 400px;
-  height: 400px;
+  width: 500px;
+  height: 500px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   /* border: 2px dashed rgba(99, 102, 241, 0.35); */
@@ -35,15 +48,15 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 56px;
-  height: 56px;
+  width: 60px;
+  height: 60px;
   pointer-events: auto;
   animation: orbit-spin 7s linear infinite;
 }
 
 .orbit-icon {
-  width: 44px;
-  height: 44px;
+  width: 50px;
+  height: 50px;
   object-fit: contain;
   filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.25));
   transition: filter 0.2s ease, transform 0.2s ease;
@@ -57,19 +70,60 @@
   transform: scale(1.3);
 }
 
-/* ── Decorative glowing centre dot ───────────────────────────────── */
-/* .orbit-center {
+/* ── Profile Picture ─────────────────────────────────────────────── */
+.orbit-pfp-wrapper {
   position: absolute;
-  top: 0;
+  /* Center horizontally, shift up so the head aligns with the orbit center */
   left: 0;
-  width: 16px;
-  height: 16px;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background: radial-gradient(circle, #a855f7, #6366f1);
-  box-shadow: 0 0 20px rgba(168, 85, 247, 0.9), 0 0 40px rgba(99, 102, 241, 0.4);
-  pointer-events: none;
+  top: -190px;
+  width: 450px;
+  /* Large size */
+  /* Height will auto-adapt to image ratio */
+  transform: translate(-50%, 0);
+
+  /* Reset previous crop styles */
+  border-radius: 0;
+  overflow: visible;
+  box-shadow: none;
+  border: none;
+
+  pointer-events: auto;
+  z-index: 20;
+  /* Keep it in front of the orbit */
+
+  /* Start hidden, pops in after orbit animates */
+  opacity: 0;
+  animation: pfp-slide-up 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  animation-delay: 1.2s;
+  /* Waits for the scene to fade in */
+}
+
+.orbit-pfp {
+  width: 100%;
+  height: auto;
+  transform: scale(1.5);
+  object-fit: contain;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  /* filter: drop-shadow(0 0 30px rgba(0, 0, 0, 0.8)); */
+  filter: drop-shadow(0 0 40px rgba(99, 102, 241, 0.5));
+}
+
+/* .orbit-pfp-wrapper:hover .orbit-pfp {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 40px rgba(99, 102, 241, 0.5));
 } */
+
+@keyframes pfp-slide-up {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 150px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
 
 /* ── Keyframes ───────────────────────────────────────────────────── */
 /*    --angle is the STATIC start offset for each icon.
@@ -78,11 +132,11 @@
 @keyframes orbit-spin {
   0% {
     transform:
-      translate(-50%, -50%) rotate(var(--angle)) translateX(200px) rotate(calc(-1 * var(--angle)));
+      translate(-50%, -50%) rotate(var(--angle)) translateX(250px) rotate(calc(-1 * var(--angle)));
   }
 
   100% {
     transform:
-      translate(-50%, -50%) rotate(calc(var(--angle) + 360deg)) translateX(200px) rotate(calc(-1 * var(--angle) - 360deg));
+      translate(-50%, -50%) rotate(calc(var(--angle) + 360deg)) translateX(250px) rotate(calc(-1 * var(--angle) - 360deg));
   }
 }

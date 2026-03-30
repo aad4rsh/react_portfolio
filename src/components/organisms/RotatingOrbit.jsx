@@ -21,8 +21,10 @@ const RotatingOrbit = () => {
       {/* Static decorative ring — not animated */}
       <div className="orbit-ring" />
 
-      {/* Glowing centre dot */}
-      <div className="orbit-center" />
+      {/* Profile picture at the center */}
+      <div className="orbit-pfp-wrapper">
+        <img src="/pfp.png" alt="Profile" className="orbit-pfp" />
+      </div>
 
       {/* Each icon orbits independently from the anchor */}
       {icons.map((icon, i) => {
