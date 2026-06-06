@@ -1,0 +1,56 @@
+.designs-page {
+  min-height: 100vh;
+  padding: 6rem 4rem;
+  background: #0a0a0f;
+  color: #ffffff;
+}
+
+.designs-page__header-container {
+  max-width: 1400px;
+  margin: 0 auto 5rem;
+}
+
+.designs-page__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  margin-bottom: 3rem;
+  transition: color 0.3s ease;
+}
+
+.designs-page__back:hover {
+  color: #ffffff;
+}
+
+.designs-page__title {
+  font-family: "Roboto", sans-serif;
+  font-size: 4rem;
+  font-weight: 200;
+  margin: 0 0 1rem;
+}
+
+.designs-page__subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 600px;
+}
+
+.designs-page__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .designs-page {
+    padding: 4rem 1.5rem;
+  }
+  
+  .designs-page__title {
+    font-size: 3rem;
+  }
+}

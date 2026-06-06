@@ -1,0 +1,143 @@
+/* ── Projects Page ────────────────────────────────────────────── */
+
+.projects-page {
+  position: relative;
+  min-height: 100vh;
+  padding: 2rem 4rem 5rem;
+  background: #0a0a0f;
+  overflow-x: hidden;
+}
+
+/* Ambient glow */
+.projects-page__bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(99, 102, 241, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+}
+
+/* ── Back Link ── */
+.projects-page__back {
+  position: relative;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 3rem;
+  padding: 0.5rem 1.25rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: rgba(196, 181, 253, 0.75);
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  border-radius: 100px;
+  transition: all 0.3s ease;
+}
+
+.projects-page__back:hover {
+  color: #ffffff;
+  background: rgba(99, 102, 241, 0.15);
+  border-color: rgba(99, 102, 241, 0.4);
+  transform: translateX(-4px);
+}
+
+/* ── Header ── */
+.projects-page__header {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.projects-page__label {
+  display: inline-block;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(139, 92, 246, 0.7);
+  margin-bottom: 0.75rem;
+}
+
+.projects-page__title {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 4.5rem;
+  font-weight: 200;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, #ffffff 0%, #8b5cf6 60%, #6366f1 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.projects-page__subtitle {
+  margin: 1rem auto 0;
+  max-width: 500px;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(203, 213, 225, 0.6);
+}
+
+/* ── Grid ── */
+.projects-page__grid {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+.projects-page__card-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .projects-page {
+    padding: 2rem 2.5rem 4rem;
+  }
+
+  .projects-page__title {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-page {
+    padding: 1.5rem 1.5rem 3rem;
+  }
+
+  .projects-page__title {
+    font-size: 2.5rem;
+  }
+
+  .projects-page__grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-page {
+    padding: 1rem 1rem 2.5rem;
+  }
+
+  .projects-page__title {
+    font-size: 2rem;
+  }
+}

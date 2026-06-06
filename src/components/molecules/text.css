@@ -21,7 +21,7 @@
   padding-left: 0.2rem;
   font-size: 4rem;
   font-weight: 100;
-  font-family: "Inter";
+  font-family: "Roboto", sans-serif;
   letter-spacing: -0.07em;
 
   color: #ffffff;
@@ -31,7 +31,7 @@
   margin: 0;
   /* This is what was blocking the text from going to the absolute left! */
   line-height: 1;
-  font-family: "Inter";
+  font-family: "Roboto", sans-serif;
 
   font-size: 6.5em;
   font-weight: 200;

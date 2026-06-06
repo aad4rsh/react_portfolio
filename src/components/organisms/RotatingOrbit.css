@@ -74,8 +74,8 @@
 .orbit-pfp-wrapper {
   position: absolute;
   /* Center horizontally, shift up so the head aligns with the orbit center */
-  left: 0;
-  top: -290px;
+  left: -15px;
+  top: -250px;
   width: 470px;
   /* Large size */
   /* Height will auto-adapt to image ratio */
@@ -146,37 +146,97 @@
 ─────────────────────────────────────────────────────────────── */
 
 @media (max-width: 1024px) {
-  .orbit-ring { width: 450px; height: 450px; }
-  .orbit-icon-wrapper { width: 50px; height: 50px; }
-  .orbit-icon { width: 40px; height: 40px; }
-  .orbit-pfp-wrapper { width: 350px; top: -210px; }
-  
+  .orbit-ring {
+    width: 450px;
+    height: 450px;
+  }
+
+  .orbit-icon-wrapper {
+    width: 50px;
+    height: 50px;
+  }
+
+  .orbit-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .orbit-pfp-wrapper {
+    width: 350px;
+    top: -210px;
+  }
+
   @keyframes orbit-spin {
-    0% { transform: translate(-50%, -50%) rotate(var(--angle)) translateX(190px) rotate(calc(-1 * var(--angle))); }
-    100% { transform: translate(-50%, -50%) rotate(calc(var(--angle) + 360deg)) translateX(190px) rotate(calc(-1 * var(--angle) - 360deg)); }
+    0% {
+      transform: translate(-50%, -50%) rotate(var(--angle)) translateX(190px) rotate(calc(-1 * var(--angle)));
+    }
+
+    100% {
+      transform: translate(-50%, -50%) rotate(calc(var(--angle) + 360deg)) translateX(190px) rotate(calc(-1 * var(--angle) - 360deg));
+    }
   }
 }
 
 @media (max-width: 768px) {
-  .orbit-ring { width: 350px; height: 350px; }
-  .orbit-icon-wrapper { width: 44px; height: 44px; }
-  .orbit-icon { width: 34px; height: 34px; }
-  .orbit-pfp-wrapper { width: 280px; top: -160px; }
-  
+  .orbit-ring {
+    width: 350px;
+    height: 350px;
+  }
+
+  .orbit-icon-wrapper {
+    width: 44px;
+    height: 44px;
+  }
+
+  .orbit-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .orbit-pfp-wrapper {
+    width: 280px;
+    top: -160px;
+  }
+
   @keyframes orbit-spin {
-    0% { transform: translate(-50%, -50%) rotate(var(--angle)) translateX(150px) rotate(calc(-1 * var(--angle))); }
-    100% { transform: translate(-50%, -50%) rotate(calc(var(--angle) + 360deg)) translateX(150px) rotate(calc(-1 * var(--angle) - 360deg)); }
+    0% {
+      transform: translate(-50%, -50%) rotate(var(--angle)) translateX(150px) rotate(calc(-1 * var(--angle)));
+    }
+
+    100% {
+      transform: translate(-50%, -50%) rotate(calc(var(--angle) + 360deg)) translateX(150px) rotate(calc(-1 * var(--angle) - 360deg));
+    }
   }
 }
 
 @media (max-width: 480px) {
-  .orbit-ring { width: 280px; height: 280px; }
-  .orbit-icon-wrapper { width: 36px; height: 36px; }
-  .orbit-icon { width: 28px; height: 28px; }
-  .orbit-pfp-wrapper { width: 220px; top: -110px; }
-  
+  .orbit-ring {
+    width: 280px;
+    height: 280px;
+  }
+
+  .orbit-icon-wrapper {
+    width: 36px;
+    height: 36px;
+  }
+
+  .orbit-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .orbit-pfp-wrapper {
+    width: 220px;
+    top: -110px;
+  }
+
   @keyframes orbit-spin {
-    0% { transform: translate(-50%, -50%) rotate(var(--angle)) translateX(120px) rotate(calc(-1 * var(--angle))); }
-    100% { transform: translate(-50%, -50%) rotate(calc(var(--angle) + 360deg)) translateX(120px) rotate(calc(-1 * var(--angle) - 360deg)); }
+    0% {
+      transform: translate(-50%, -50%) rotate(var(--angle)) translateX(120px) rotate(calc(-1 * var(--angle)));
+    }
+
+    100% {
+      transform: translate(-50%, -50%) rotate(calc(var(--angle) + 360deg)) translateX(120px) rotate(calc(-1 * var(--angle) - 360deg));
+    }
   }
 }

@@ -1,0 +1,220 @@
+.about-section {
+  position: relative;
+  z-index: 30;
+  background: #0a0a0f;
+  padding: 12rem 4rem;
+  overflow: hidden;
+}
+
+/* Subtle background pattern hinting at Mithila art */
+.about-motif {
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: 
+    radial-gradient(circle at 2px 2px, #8b5cf6 1px, transparent 0);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(circle at center, black 0%, transparent 80%);
+  pointer-events: none;
+}
+
+.about-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 8rem;
+  align-items: center;
+}
+
+/* ── Left Side: Profile Photo ── */
+.about-profile {
+  position: relative;
+}
+
+.about-photo-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+}
+
+.about-photo-container {
+  position: relative;
+  aspect-ratio: 4/5;
+  background: #151520;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+.about-photo-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholder-pattern {
+  width: 80%;
+  height: 80%;
+  opacity: 0.1;
+  background-image: repeating-linear-gradient(45deg, #8b5cf6 0, #8b5cf6 1px, transparent 0, transparent 50%);
+  background-size: 20px 20px;
+}
+
+/* Scanning Line */
+.about-scanner-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #8b5cf6, transparent);
+  box-shadow: 0 0 15px #8b5cf6;
+  z-index: 2;
+}
+
+.about-ui-corner {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #8b5cf6;
+  opacity: 0.6;
+}
+
+.about-ui-corner.top-left { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+.about-ui-corner.bottom-right { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+
+.about-status-tag {
+  position: absolute;
+  bottom: -30px;
+  right: 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.75rem;
+  color: #8b5cf6;
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #8b5cf6;
+  box-shadow: 0 0 10px #8b5cf6;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* ── Right Side: Content ── */
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.about-label {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.about-heading {
+  font-family: "Roboto", sans-serif;
+  font-size: 3.5rem;
+  font-weight: 200;
+  line-height: 1.1;
+  color: #ffffff;
+  margin: 0;
+}
+
+.text-gradient {
+  color: #8b5cf6;
+  font-weight: 400;
+}
+
+.about-paragraph {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 650px;
+}
+
+.about-paragraph strong {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.about-toolkit {
+  margin-top: 1rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.toolkit-label {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.75rem;
+  color: #8b5cf6;
+  margin-bottom: 1.5rem;
+}
+
+.toolkit-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.toolkit-grid span {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  padding: 0.4rem 1rem;
+  background: rgba(139, 92, 246, 0.1);
+  border-radius: 4px;
+}
+
+.about-footer {
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #8b5cf6;
+  border-left: 2px solid #8b5cf6;
+  padding-left: 1.5rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 6rem;
+  }
+  
+  .about-photo-wrapper {
+    margin: 0 auto;
+  }
+
+  .about-heading {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 6rem 1.5rem;
+  }
+
+  .about-heading {
+    font-size: 2.2rem;
+  }
+}
